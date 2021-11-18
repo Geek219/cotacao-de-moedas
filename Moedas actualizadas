@@ -1,0 +1,23 @@
+import requests
+import json
+
+print("Para cotacoes digite dolar, Euro, bitcoin")
+
+dig = str(input(''))
+    
+moeda =requests.get("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
+
+moeda = moeda.json()
+
+dolar = moeda["USDBRL"]['bid']
+
+Euro = moeda["EURBRL"]['bid']
+
+BTC = moeda["BTCBRL"]['bid']
+
+if dig == "dolar":
+    print("A cotacao do dolar é:",dolar)
+if dig == "Euro":
+    print("A cotacao do Euro é:",Euro)
+if dig == "bitcoin":
+    print("A cotacao do Bitcoin é:",BTC)
